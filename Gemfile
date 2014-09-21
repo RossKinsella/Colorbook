@@ -1,4 +1,3 @@
-source 'https://rubygems.org'
-
+source :rubygems
+gem 'rack'
 gem 'nokogiri'
-gem 'time'

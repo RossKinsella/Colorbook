@@ -16,6 +16,10 @@ partnersXml = threadsXml.xpath('text()')
 # |- Store the messages in a 2D array [partners][messages-of-that-partner]
 messageTimes = Array.new
 threadsXml.each_with_index { |conversationThread, index|
+	if index == 53
+		puts conversationThread.inspect
+	end
+
 	# Create a temporary array for the messages with this partner.
 	currentPartnerMessageTimes = Array.new
 	# Get the time of every message with this partner.
