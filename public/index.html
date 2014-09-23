@@ -122,9 +122,9 @@ $(document).ready(function() {
     Papa.parse("data/message_data.csv", {
         download: true,
         complete: function(results) {
+
             for (var i= 0; i < results.data.length; i++)
             {
-                
                 setTimeout(function () {
                     datetime = results.data[curr][0];
                     year = datetime.substr(0, 4);
@@ -142,6 +142,7 @@ $(document).ready(function() {
                     addInteraction((results.data[curr][2]));
                     curr++;
                 }, time);
+
                 time += 10;
             }
         }
