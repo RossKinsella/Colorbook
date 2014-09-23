@@ -3,6 +3,9 @@
 ###Description
 ```
 A project exploring relationships over time and the human condition.
+
+http://color-book.herokuapp.com/
+-- Give it a moment to load..
 ```
 
 ###Setup
