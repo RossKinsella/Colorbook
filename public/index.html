@@ -111,7 +111,7 @@ $(document).ready(function() {
     var curr = 1;
     var time = 100;
 
-    var datetime, year, month, day, hour;
+    var datetime;
     var yearElement = $('#year');
     var monthElement = $('#month');
     var dayElement = $('#day');
@@ -127,17 +127,12 @@ $(document).ready(function() {
             {
                 setTimeout(function () {
                     datetime = results.data[curr][0];
-                    year = datetime.substr(0, 4);
-                    month = datetime.substr(5, 2);
-                    day = datetime.substr(8, 2);
-                    hour = datetime.substr(11, 2);
-                    minute = datetime.substr(14, 2);
                     
-                    yearElement.text(year);
-                    monthElement.text(month);
-                    dayElement.text(day);
-                    hourElement.text(hour);
-                    minuteElement.text(minute);
+                    yearElement.text(datetime.substr(0, 4));
+                    monthElement.text(datetime.substr(5, 2));
+                    dayElement.text(datetime.substr(8, 2));
+                    hourElement.text(datetime.substr(11, 2));
+                    minuteElement.text(datetime.substr(14, 2));
 
                     addInteraction((results.data[curr][2]));
                     curr++;
