@@ -9,6 +9,13 @@
 </head>
 
 <body>
+    <div class="clock">
+        <div class="date element"><span id = "year"></span><span>:</span></div>
+        <div class="date element"><span id="month"></span><span>:</span></div>
+        <div class="date element" id="day"></div>
+        <div class="time element"><span id="hour"></span><span>:</span></div>
+        <div class="time element" id="minute"></div>
+    </div>
     <canvas id="canvas">
 
     </canvas>
@@ -90,18 +97,27 @@ $(document).ready(function() {
 
         for (var i = 0; i < interactions.getLength(); i++) {
 
-            var interaction = interactions.dequeue();
 
-            interaction.update()
+            var interaction = interactions.dequeue();
+            interaction.update();
 
         }
 
         requestAnimationFrame(draw);
     }
 
+
     var count = 0;
-    var curr = 0;
+    var curr = 1;
     var time = 100;
+
+    var datetime, year, month, day, hour;
+    var yearElement = $('#year');
+    var monthElement = $('#month');
+    var dayElement = $('#day');
+    var hourElement = $('#hour');
+    var minuteElement = $('#minute');
+
 
     Papa.parse("data/message_data.csv", {
         download: true,
@@ -109,12 +125,24 @@ $(document).ready(function() {
             for (var i= 0; i < results.data.length; i++)
             {
                 
-
                 setTimeout(function () {
+                    datetime = results.data[curr][0];
+                    year = datetime.substr(0, 4);
+                    month = datetime.substr(5, 2);
+                    day = datetime.substr(8, 2);
+                    hour = datetime.substr(11, 2);
+                    minute = datetime.substr(14, 2);
+                    
+                    yearElement.text(year);
+                    monthElement.text(month);
+                    dayElement.text(day);
+                    hourElement.text(hour);
+                    minuteElement.text(minute);
+
                     addInteraction((results.data[curr][2]));
                     curr++;
                 }, time);
-                time += 100;
+                time += 10;
             }
         }
     });
