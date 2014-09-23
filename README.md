@@ -15,6 +15,8 @@ Download your facebook data.
 Insert the messages.htm file into the directory
 bundle install.
 ruby main.rb
+move message_data.csv into the data folder
+rackup
 ```
 
 ###End Goal
