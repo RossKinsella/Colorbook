@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -13,6 +14,7 @@
         <div class="date element"><span id = "year"></span><span>:</span></div>
         <div class="date element"><span id="month"></span><span>:</span></div>
         <div class="date element" id="day"></div>
+        <div class="clearfix"></div>
         <div class="time element"><span id="hour"></span><span>:</span></div>
         <div class="time element" id="minute"></div>
     </div>
@@ -78,7 +80,7 @@ $(document).ready(function() {
 
         var randomX = -10;
         var randomY = Math.round(-200 + Math.random() * canvas.height + 200);
-        var speed = 3 + Math.random() * 20;
+        var speed = 7;
         var size = 5 + Math.random() * 100;
 
         var interaction = new Interaction(10, speed, size, randomX, randomY, color);

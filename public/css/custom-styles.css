@@ -22,9 +22,8 @@ canvas{
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin-top: -20px;
-	margin-left: -120px;
-
+	margin-top: -62px;
+	margin-left: -164px;
 }
 
 .clock:after { 
@@ -36,12 +35,11 @@ canvas{
 
 .element{
 	float: left;
-	
+	font-family: monospace;
 	color: white;
 	padding: 1px;
-	
-	font-size: 32px;
-
+	font-weight: 700;
+	font-size: 52px;
 }
 
 .element:nth-child(3) {
