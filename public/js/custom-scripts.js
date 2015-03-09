@@ -1,110 +1,88 @@
 
 $(document).ready(function() {
-    states = {pageIsActive: 4};
+    states = {pageIsActive: 4, interaction_frequency: 20, current_time: 0};
+    InteractionIndex = {datetime: 0, user_id: 1, color: 2};
+    var interactions = new Queue();
     
 
     $(window).blur(function(){
         states.pageIsActive = false;
-        console.log('blur');
     });
 
     $(window).focus(function(event) {
        states.pageIsActive = true;
-       console.log('focus');
     });
 
+    var time = 100;
 
-    // Make the canvas full screen via js rather than css to avoid pixelation.
-    var canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function Main()
+    {
+        // Infinite loop
+        window.setInterval(function () {
+            if (states.pageIsActive)
+            {
+                // Dequeue an interaction and activate it
+                var interaction = interactions.dequeue();
+                ActivateInteraction(interaction);
+            }
+            else
+            {
+                console.log('Paused');
+            }
+        }, 100); // repeat forever, polling every 0.1 seconds
+    }
 
-    var mainContext = canvas.getContext('2d');
+    function ActivateInteraction(interaction)
+    {
+        // Update the time
+        datetime = interaction.datetime;
+        //console.log(datetime);
+        
+        yearElement.text(datetime.substr(0, 4));
+        monthElement.text(datetime.substr(5, 2));
+        dayElement.text(datetime.substr(8, 2));
+        hourElement.text(datetime.substr(11, 2));
+        minuteElement.text(datetime.substr(14, 2));  
+    }
 
-    var interactions = new Queue();
 
-    var requestAnimationFrame = window.requestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.msRequestAnimationFrame;
-
-
-    function Interaction(radius, speed, width, xPos, yPos, color) {
+    function Interaction(radius, speed, width, xPos, yPos, datetime, user_id, color) {
         this.radius = radius;
         this.speed = speed;
         this.width = width;
         this.xPos = xPos;
         this.yPos = yPos;
+        this.datetime = datetime;
+        this.user_id = user_id;
         this.color = color;
         this.opacity = .05 + Math.random() * .5;
     }
 
-    Interaction.prototype.update = function() {
-
-        mainContext.beginPath();
-
-        // pixels / second
-        this.xPos += this.speed;
-
-
-        mainContext.arc(this.xPos,
-            this.yPos,
-            10,
-            0,
-            Math.PI * 2,
-            false);
-
-        mainContext.closePath();
-
-        mainContext.fillStyle = this.color
-        mainContext.fill();
-        if (this.xPos < (canvas.width + this.width)) {
-            interactions.enqueue(this);
-        }
-    };
-
-    function addInteraction(color) {
+    function addInteraction(interaction_data) {
 
         var randomX = -10;
         var randomY = Math.round(-200 + Math.random() * canvas.height + 200);
         var speed = 7;
         var size = 5 + Math.random() * 100;
 
-        var interaction = new Interaction(10, speed, size, randomX, randomY, color);
-
+        var interaction = new Interaction(
+            10,
+            speed,
+            size,
+            randomX,
+            randomY,
+            interaction_data[InteractionIndex.datetime],
+            interaction_data[InteractionIndex.user_id],
+            interaction_data[InteractionIndex.color]
+        );
+        
         interactions.enqueue(interaction);
 
-
-    }
-
-
-        draw();
-    
-        
-
-    function draw() {
-        console.log(states.pageIsActive);
-        if (states.pageIsActive)
-        {
-            mainContext.clearRect(0, 0, canvas.width, canvas.height);
-
-
-            for (var i = 0; i < interactions.getLength(); i++) {
-
-
-                var interaction = interactions.dequeue();
-                interaction.update();
-
-            }
-        }
-
-            requestAnimationFrame(draw);
-    }
-
+    }    
 
     var count = 0;
     var curr = 1;
-    var time = 100;
+
 
     var datetime;
     var yearElement = $('#year');
@@ -113,31 +91,18 @@ $(document).ready(function() {
     var hourElement = $('#hour');
     var minuteElement = $('#minute');
 
-
-    Papa.parse("data/message_data.csv", {
+    // Parse the data.
+    Papa.parse("data/testing_message_data.csv", {
         download: true,
         complete: function(results) {
-
-            for (var i= 0; i < results.data.length; i++)
+            // Add every interaction to a Queue
+            for (var i= 0; i < results.data.length - 1; i++)
             {
-                if (states.pageIsActive)
-                {
-                    setTimeout(function () {
-                        datetime = results.data[curr][0];
-                        
-                        yearElement.text(datetime.substr(0, 4));
-                        monthElement.text(datetime.substr(5, 2));
-                        dayElement.text(datetime.substr(8, 2));
-                        hourElement.text(datetime.substr(11, 2));
-                        minuteElement.text(datetime.substr(14, 2));
-
-                        addInteraction((results.data[curr][2]));
-                        curr++;
-                    }, time);
-
-                    time += 10;
-                }
+                    addInteraction((results.data[curr]));
+                    curr++;
             }
+            // Start the main logic.
+            Main();
         }
     });
 });
