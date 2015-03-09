@@ -21,15 +21,13 @@ $(document).ready(function() {
         });
 
         // Parse the data.
-        Papa.parse("data/testing_message_data.csv", {
+        Papa.parse("data/message_data.csv", {
             download: true,
             complete: function(results) {
                 // Add every interaction to a Queue
-                var curr = 1;
-                for (var i= 0; i < results.data.length - 1; i++)
+                for (var i= 1; i < results.data.length - 1; i++)
                 {
-                        QueueInteraction((results.data[curr]));
-                        curr++;
+                        QueueInteraction((results.data[i]));     
                 }
                 // Start the main logic.
                 Main();
@@ -41,7 +39,7 @@ $(document).ready(function() {
     {
         // Infinite loop
         window.setInterval(function () {
-            if (States.pageIsActive)
+            if (States.pageIsActive && !Interactions.isEmpty())
             {
                 // Dequeue an interaction and activate it
                 var interaction = Interactions.dequeue();
