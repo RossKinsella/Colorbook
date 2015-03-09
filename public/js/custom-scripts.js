@@ -4,6 +4,7 @@ $(document).ready(function() {
     States = {pageIsActive: true};
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
+    Variables = { interactionFrequency: 100 }
     Interactions = new Queue();
 
     Initialise();
@@ -50,7 +51,7 @@ $(document).ready(function() {
             {
                 console.log('Paused');
             }
-        }, 100); // repeat forever, polling every 0.1 seconds
+        }, Variables.interactionFrequency); // repeat forever, polling every 0.1 seconds
     }
 
     function ActivateInteraction(interaction)
