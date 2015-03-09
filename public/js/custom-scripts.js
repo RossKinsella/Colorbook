@@ -4,7 +4,7 @@ $(document).ready(function() {
     States = {pageIsActive: true};
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
-    Variables = { interactionFrequency: 100 }
+    Variables = { interactionFrequency: 100, minInteractionSize: 10, maxInteractionSize: 30 }
     Interactions = new Queue();
 
     Initialise();
@@ -58,8 +58,15 @@ $(document).ready(function() {
         datetime = interaction.datetime;
         UpdateTimer(datetime);
 
-        // Create the animation
+        // Get animation properties
+        var color = "background:" + interaction.color + ";";
+        var sizeInt = getRandomInt(Variables.minInteractionSize, Variables.maxInteractionSize);
+        var size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
+        var topOffset = "top: " + getRandomInt(0,100) + "%;"; 
+        var style = topOffset+color+size;
 
+        // Create the animation with a self destruct
+        $("<div class='interaction-ball' style='" + style + "'></div>").appendTo('#interaction-container').one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){$(this).remove();});
     }
 
     function UpdateTimer(datetime)
@@ -85,8 +92,8 @@ $(document).ready(function() {
 
     function QueueInteraction(interaction_data) {
 
-        var randomX = -10;
-        var randomY = Math.round(-200 + Math.random() * canvas.height + 200);
+        var randomX = 0;
+        var randomY = 0;
         var speed = 7;
         var size = 5 + Math.random() * 100;
 
@@ -102,6 +109,10 @@ $(document).ready(function() {
         );
         
         Interactions.enqueue(interaction);
-    }    
+    }  
+
+    function getRandomInt(min, max) {
+     return Math.round(Math.random() * (max - min + 1)) + min;
+    }  
 
 });

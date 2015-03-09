@@ -16,6 +16,44 @@ canvas{
 	background-color: black;
 }
 
+#interaction-container{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
+	background-color: black;
+}
+
+.interaction-ball{
+  pointer-events: none;
+  position: absolute; 
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; 
+  background: gray;
+
+  -webkit-animation: implode 2s linear; 
+  -moz-animation:    implode 2s linear; 
+  -o-animation:      implode 2s linear; 
+  animation:         implode 2s linear; 
+
+  animation-fill-mode: both;
+  opacity: .5;
+}
+
+@-webkit-keyframes implode {
+  100% {transform: translateX(100em);}
+}
+@-moz-keyframes implode {
+  100% {transform: translateX(100em);}
+}
+@-o-keyframes implode {
+  100% {transform: translateX(100em);}
+}
+@keyframes implode {
+  100% {transform: translateX(100em);}
+}
 
 .clock{
 	z-index: 10;
