@@ -28,31 +28,52 @@ canvas{
 .interaction-ball{
   pointer-events: none;
   position: absolute; 
+
   width: 10px;
   height: 10px;
   border-radius: 50%; 
   background: gray;
 
-  -webkit-animation: implode 2s linear; 
-  -moz-animation:    implode 2s linear; 
-  -o-animation:      implode 2s linear; 
-  animation:         implode 2s linear; 
+  -webkit-animation: implode 5s linear; 
+  -moz-animation:    implode 5s linear; 
+  -o-animation:      implode 5s linear; 
+  animation:         implode 5s linear; 
 
   animation-fill-mode: both;
   opacity: .5;
 }
 
 @-webkit-keyframes implode {
-  100% {transform: translateX(100em);}
+  100% 
+  {
+  -webkit-transform: translateX(200em);
+      -ms-transform: translateX(200em);
+          transform: translateX(200em);
+  }
 }
 @-moz-keyframes implode {
-  100% {transform: translateX(100em);}
+  100% 
+  {
+  -webkit-transform: translateX(200em);
+      -ms-transform: translateX(200em);
+          transform: translateX(200em);
+  }
 }
 @-o-keyframes implode {
-  100% {transform: translateX(100em);}
+  100% 
+  {
+  -webkit-transform: translateX(200em);
+      -ms-transform: translateX(200em);
+          transform: translateX(200em);
+  }
 }
 @keyframes implode {
-  100% {transform: translateX(100em);}
+  100% 
+  {
+  -webkit-transform: translateX(2000em);
+      -ms-transform: translateX(2000em);
+          transform: translateX(2000em);
+  }
 }
 
 .clock{
