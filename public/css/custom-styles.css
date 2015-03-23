@@ -42,33 +42,33 @@ body{
 @-webkit-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(100vw);
-      -ms-transform: translateX(100vw);
-          transform: translateX(100vw);
+  -webkit-transform: translateX(105vw);
+      -ms-transform: translateX(105vw);
+          transform: translateX(105vw);
   }
 }
 @-moz-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(100vw);
-      -ms-transform: translateX(100vw);
-          transform: translateX(100vw);
+  -webkit-transform: translateX(105vw);
+      -ms-transform: translateX(105vw);
+          transform: translateX(105vw);
   }
 }
 @-o-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(100vw);
-      -ms-transform: translateX(100vw);
-          transform: translateX(100vw);
+  -webkit-transform: translateX(105vw);
+      -ms-transform: translateX(105vw);
+          transform: translateX(105vw);
   }
 }
 @keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(100vw);
-      -ms-transform: translateX(100vw);
-          transform: translateX(100vw);
+  -webkit-transform: translateX(105vw);
+      -ms-transform: translateX(105vw);
+          transform: translateX(105vw);
   }
 }
 
