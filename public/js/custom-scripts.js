@@ -1,6 +1,11 @@
 
 $(document).ready(function() {
     $('#clock').hide();
+    $('#more-info').hide();
+
+    $('.info').on('mouseenter', function(){ $('#more-info').fadeIn( "slow" ); });
+    $('.info').on('mouseleave', function(){ $('#more-info').fadeOut( 400 ); });
+
 
     // Globals
     States = {pageIsActive: true};

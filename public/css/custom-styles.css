@@ -8,6 +8,7 @@ body{
 	width: 100%;
 	height: 100%;
 	margin: 0px;
+  overflow: hidden;
 }
 
 canvas{
@@ -154,4 +155,96 @@ canvas{
   }
   75% { border-width: 3px;}
   100% { border-width: 10px;}
+}
+
+
+/*INFO BUTTON*/
+.info{
+  z-index: 12;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 70px;
+  height: 70px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  transition: all .3s ease-out;
+}
+
+.info:hover{
+  backface-visibility: hidden;
+  -webkit-transform: scale(1.05) rotate(3deg);
+}
+
+.info span.circleTop{
+  transition: all .3s ease-out;
+  position: absolute;
+  margin: 20px;
+  width: 70px;
+  height: 70px;
+  top:-50px;
+  left: -20px;
+  z-index:-1;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+.info:hover span.circleTop{
+  background-color: rgba(255, 140, 0, 0.6);
+  top:-20px;
+  left: -20px;
+}
+
+.info span.circleBtm{
+  transition: all .3s ease-out;
+  position: absolute;
+  margin: 20px;
+  width: 70px;
+  height: 70px;
+  top: 50px;
+  left: -20px;
+  z-index:-1;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  
+}
+
+.info:hover span.circleBtm{
+  background-color: rgba(255, 140, 0, 0.6);
+  top:-20px;
+  left: -20px;
+}
+
+.full-screen{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/*MORE INFO BOX*/
+.guttor-bot-10
+{
+  margin-bottom: 10px;
+}
+
+#more-info-container{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#more-info{
+  z-index: 13;
+  padding: 2em;
+  color: white;
+  background-color: rgba(255, 140, 0, 0.6);;
+  font-family: monospace;
+  color: white;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
 }
