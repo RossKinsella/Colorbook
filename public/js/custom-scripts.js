@@ -1,5 +1,7 @@
 
 $(document).ready(function() {
+    $('#clock').hide();
+
     // Globals
     States = {pageIsActive: true};
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
@@ -30,6 +32,8 @@ $(document).ready(function() {
                         QueueInteraction((results.data[i]));     
                 }
                 // Start the main logic.
+                $('#loader-container').fadeOut( "slow" );
+                $('#clock').fadeIn( "slow" );
                 Main();
             }
         }); 
