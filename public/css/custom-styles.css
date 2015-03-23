@@ -11,12 +11,6 @@ body{
   overflow: hidden;
 }
 
-canvas{
-
-	position: absolute;
-	background-color: black;
-}
-
 #interaction-container{
 	position: absolute;
 	width: 100%;
@@ -29,6 +23,7 @@ canvas{
 .interaction-ball{
   pointer-events: none;
   position: absolute; 
+  left: -20px;
 
   width: 10px;
   height: 10px;
@@ -78,6 +73,7 @@ canvas{
 }
 
 .clock{
+  display: none;
 	z-index: 10;
 	position: absolute;
 	bottom: 5%;
@@ -160,6 +156,7 @@ canvas{
 
 /*INFO BUTTON*/
 .info{
+  display: none;
   z-index: 12;
   position: absolute;
   top: 5%;
@@ -245,6 +242,7 @@ canvas{
 }
 
 #more-info{
+  display: none;
   z-index: 13;
   padding: 2em;
   color: white;

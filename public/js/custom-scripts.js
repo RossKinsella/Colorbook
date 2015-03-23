@@ -1,8 +1,5 @@
 
 $(document).ready(function() {
-    $('#clock').hide();
-    $('#more-info').hide();
-
     $('.info').on('mouseenter', function(){ $('#more-info').fadeIn( "slow" ); });
     $('.info').on('mouseleave', function(){ $('#more-info').fadeOut( 400 ); });
 
@@ -11,7 +8,7 @@ $(document).ready(function() {
     States = {pageIsActive: true};
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
-    Variables = { interactionFrequency: 10, minInteractionSize: 10, maxInteractionSize: 30 }
+    Variables = { interactionFrequency: 100, minInteractionSize: 10, maxInteractionSize: 30 }
     Interactions = new Queue();
 
     Initialise();
@@ -39,6 +36,8 @@ $(document).ready(function() {
                 // Start the main logic.
                 $('#loader-container').fadeOut( "slow" );
                 $('#clock').fadeIn( "slow" );
+                $('.info').fadeIn( "slow" );
+                
                 Main();
             }
         }); 
