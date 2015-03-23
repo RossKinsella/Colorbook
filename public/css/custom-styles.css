@@ -35,10 +35,10 @@ canvas{
   border-radius: 50%; 
   background: gray;
 
-  -webkit-animation: implode 5s linear; 
-  -moz-animation:    implode 5s linear; 
-  -o-animation:      implode 5s linear; 
-  animation:         implode 5s linear; 
+  -webkit-animation: implode 4s linear; 
+  -moz-animation:    implode 4s linear; 
+  -o-animation:      implode 4s linear; 
+  animation:         implode 4s linear; 
 
   animation-fill-mode: both;
   opacity: .5;
@@ -47,33 +47,33 @@ canvas{
 @-webkit-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(200em);
-      -ms-transform: translateX(200em);
-          transform: translateX(200em);
+  -webkit-transform: translateX(100vw);
+      -ms-transform: translateX(100vw);
+          transform: translateX(100vw);
   }
 }
 @-moz-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(200em);
-      -ms-transform: translateX(200em);
-          transform: translateX(200em);
+  -webkit-transform: translateX(100vw);
+      -ms-transform: translateX(100vw);
+          transform: translateX(100vw);
   }
 }
 @-o-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(200em);
-      -ms-transform: translateX(200em);
-          transform: translateX(200em);
+  -webkit-transform: translateX(100vw);
+      -ms-transform: translateX(100vw);
+          transform: translateX(100vw);
   }
 }
 @keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(2000em);
-      -ms-transform: translateX(2000em);
-          transform: translateX(2000em);
+  -webkit-transform: translateX(100vw);
+      -ms-transform: translateX(100vw);
+          transform: translateX(100vw);
   }
 }
 
@@ -166,19 +166,20 @@ canvas{
   right: 5%;
   width: 70px;
   height: 70px;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
   border-radius: 50px;
-  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+          transition: all .3s ease-out;
 }
 
 .info:hover{
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transform: scale(1.05) rotate(3deg);
 }
 
 .info span.circleTop{
-  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+          transition: all .3s ease-out;
   position: absolute;
   margin: 20px;
   width: 70px;
@@ -186,8 +187,6 @@ canvas{
   top:-50px;
   left: -20px;
   z-index:-1;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
   border-radius: 50px;
 }
 
@@ -198,7 +197,8 @@ canvas{
 }
 
 .info span.circleBtm{
-  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+          transition: all .3s ease-out;
   position: absolute;
   margin: 20px;
   width: 70px;
@@ -206,8 +206,6 @@ canvas{
   top: 50px;
   left: -20px;
   z-index:-1;
-  -moz-border-radius: 50px;
-  -webkit-border-radius: 50px;
   border-radius: 50px;
   
 }
@@ -232,9 +230,18 @@ canvas{
 
 #more-info-container{
   height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #more-info{
