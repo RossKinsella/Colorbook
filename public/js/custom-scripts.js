@@ -56,7 +56,7 @@ $(document).ready(function() {
                 $('#clock').fadeIn( "slow" );
                 $('.info').fadeIn( "slow" );
             
-                audio.play()
+                audio.play();
                 
 
                 Main();
