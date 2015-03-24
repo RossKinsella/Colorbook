@@ -189,7 +189,7 @@ $(document).ready(function() {
     // You cannot autoplay media for IOS.
     function StartMusic()
     {
-        var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+        var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod|Android)/g) ? true : false );
         if (iOS)
             $('#jack-credit').remove();
         else
