@@ -1,12 +1,11 @@
 
 $(document).ready(function() {
     // Globals
-    States = {pageIsActive: true, tappedInfoButton: false};
+    States = {pageIsActive: true, tappedInfoButton: false };
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
     Variables = { interactionFrequency: 15, minInteractionSize: 10, maxInteractionSize: 30 }
     Interactions = new Queue();
-
     
     // Events
     $('.info').on('tap', function(){ 
@@ -54,8 +53,9 @@ $(document).ready(function() {
                 $('#loader-container').fadeOut( "slow" );
                 $('#clock').fadeIn( "slow" );
                 $('.info').fadeIn( "slow" );
-            
-                $('#loader-container').append("<iframe width= '100%' height= '450' scrolling= no' frameborder= 'no' src= 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/196109539&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>");
+                
+                StartMusic();
+                
                 
                 Main();
             }
@@ -184,6 +184,16 @@ $(document).ready(function() {
             };
         
         return vendors[match[0]];
+    }
+
+    // You cannot autoplay media for IOS.
+    function StartMusic()
+    {
+        var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+        if (iOS)
+            $('#jack-credit').remove();
+        else
+            $('#loader-container').append("<iframe style='display:none;' width= '100%' height= '450' scrolling= no' frameborder= 'no' src= 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/196109539&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>");
     }
 
 });

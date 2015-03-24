@@ -190,6 +190,11 @@ body{
   margin-bottom: 10px;
 }
 
+#jack-credit
+{
+  margin-top: 35px;
+}
+
 #more-info-container{
   height: 100%;
   display: -webkit-box;
