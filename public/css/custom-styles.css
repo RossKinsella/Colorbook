@@ -42,25 +42,25 @@ body{
 @-webkit-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(105vw);
-      -ms-transform: translateX(105vw);
-          transform: translateX(105vw);
+  -webkit-transform: translateX(105rem);
+      -ms-transform: translateX(105rem);
+          transform: translateX(105rem);
   }
 }
 @-moz-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(105vw);
-      -ms-transform: translateX(105vw);
-          transform: translateX(105vw);
+  -webkit-transform: translateX(105rem);
+      -ms-transform: translateX(105rem);
+          transform: translateX(105rem);
   }
 }
 @-o-keyframes implode {
   100% 
   {
-  -webkit-transform: translateX(105vw);
-      -ms-transform: translateX(105vw);
-          transform: translateX(105vw);
+  -webkit-transform: translateX(105rem);
+      -ms-transform: translateX(105rem);
+          transform: translateX(105rem);
   }
 }
 @keyframes implode {
@@ -76,10 +76,8 @@ body{
   display: none;
 	z-index: 10;
 	position: absolute;
-	bottom: 5%;
-	left: 15%;
-	margin-top: -62px;
-	margin-left: -164px;
+	bottom: 50px;
+	left: 50px;
 }
 
 .clock:after { 
@@ -168,7 +166,7 @@ body{
           transition: all .3s ease-out;
 }
 
-.info:hover{
+.show{
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transform: scale(1.05) rotate(3deg);
@@ -187,13 +185,13 @@ body{
   border-radius: 50px;
 }
 
-.info:hover span.circleTop{
+.show span.circleTop{
   background-color: rgba(255, 140, 0, 0.6);
   top:-20px;
   left: -20px;
 }
 
-.info span.circleBtm{
+.show span.circleBtm{
   -webkit-transition: all .3s ease-out;
           transition: all .3s ease-out;
   position: absolute;
@@ -207,7 +205,7 @@ body{
   
 }
 
-.info:hover span.circleBtm{
+.show span.circleBtm{
   background-color: rgba(255, 140, 0, 0.6);
   top:-20px;
   left: -20px;

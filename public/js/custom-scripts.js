@@ -1,17 +1,34 @@
 
 $(document).ready(function() {
-    $('.info').on('mouseenter', function(){ $('#more-info').fadeIn( "slow" ); });
-    $('.info').on('mouseleave', function(){ $('#more-info').fadeOut( 400 ); });
-
-
     // Globals
-    States = {pageIsActive: true};
+    States = {pageIsActive: true, tappedInfoButton: false};
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
     Variables = { interactionFrequency: 100, minInteractionSize: 10, maxInteractionSize: 30 }
     Interactions = new Queue();
+    
+    // Events
+
+    $('.info').on('tap', function(){ 
+        console.log(States.tappedInfoButton);
+        if (States.tappedInfoButton)
+        {
+            $('#more-info').stop( true, true ).fadeOut( 400 ); 
+            $('.info').removeClass('show');
+            console.log($('.info').attr("class").split(' '));
+            States.tappedInfoButton  = false;
+        }
+        else{
+            $('#more-info').stop( true, true ).fadeIn( "slow" ); 
+            $('.info').addClass('show');
+            console.log($('.info').attr("class").split(' '));
+            States.tappedInfoButton  = true;            
+        }
+    });
+
 
     Initialise();
+
 
     function Initialise()
     {
