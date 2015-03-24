@@ -187,9 +187,9 @@ body{
   position: absolute;
   top: 5%;
   right: 5%;
-  width: 70px;
-  height: 70px;
-  border-radius: 50px;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 100px;
   -webkit-transition: all .3s ease-out;
           transition: all .3s ease-out;
 }
@@ -205,12 +205,12 @@ body{
           transition: all .3s ease-out;
   position: absolute;
   margin: 20px;
-  width: 70px;
-  height: 70px;
+  width: 7rem;
+  height: 7rem;
   top:-50px;
   left: -20px;
   z-index:-1;
-  border-radius: 50px;
+  border-radius: 100px;
 }
 
 .show span.circleTop{
@@ -224,12 +224,12 @@ body{
           transition: all .3s ease-out;
   position: absolute;
   margin: 20px;
-  width: 70px;
-  height: 70px;
+  width: 7rem;
+  height: 7rem;
   top: 50px;
   left: -20px;
   z-index:-1;
-  border-radius: 50px;
+  border-radius: 100px;
   
 }
 
