@@ -4,7 +4,7 @@ $(document).ready(function() {
     States = {pageIsActive: true, tappedInfoButton: false};
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
-    Variables = { interactionFrequency: 100, minInteractionSize: 10, maxInteractionSize: 30 }
+    Variables = { interactionFrequency: 15, minInteractionSize: 10, maxInteractionSize: 30 }
     Interactions = new Queue();
     
     // Events
