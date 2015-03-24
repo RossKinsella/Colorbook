@@ -39,39 +39,6 @@ body{
   opacity: .5;
 }
 
-@-webkit-keyframes implode {
-  100% 
-  {
-  -webkit-transform: translateX(105vw);
-      -ms-transform: translateX(105vw);
-          transform: translateX(105vw);
-  }
-}
-@-moz-keyframes implode {
-  100% 
-  {
-  -webkit-transform: translateX(105vw);
-      -ms-transform: translateX(105vw);
-          transform: translateX(105vw);
-  }
-}
-@-o-keyframes implode {
-  100% 
-  {
-  -webkit-transform: translateX(105vw);
-      -ms-transform: translateX(105vw);
-          transform: translateX(105vw);
-  }
-}
-@keyframes implode {
-  100% 
-  {
-  -webkit-transform: translateX(105vw);
-      -ms-transform: translateX(105vw);
-          transform: translateX(105vw);
-  }
-}
-
 .clock{
   display: none;
 	z-index: 10;

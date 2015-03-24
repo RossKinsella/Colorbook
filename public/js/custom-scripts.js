@@ -147,7 +147,7 @@ $(document).ready(function() {
     // I cant figure out how to dynamically set my transitions so this exists
     function injectInteractionAnimationRule() {
         var prefix = getVendorPrefix();
-        var screenWidth = screen.width;
+        var screenWidth = $( window ).width();
         var styleSheet = document.styleSheets[0];
         var name = 'implode'; // An animation has no selector but it does have a name...
         var index = 0; // Where to enter this in the rules
