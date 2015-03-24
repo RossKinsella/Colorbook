@@ -6,9 +6,10 @@ $(document).ready(function() {
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
     Variables = { interactionFrequency: 15, minInteractionSize: 10, maxInteractionSize: 30 }
     Interactions = new Queue();
+    var audio = $('#song').get(0);
+    audio.load();
     
     // Events
-
     $('.info').on('tap', function(){ 
         // console.log(States.tappedInfoButton);
         if (States.tappedInfoButton)
@@ -54,10 +55,7 @@ $(document).ready(function() {
                 $('#loader-container').fadeOut( "slow" );
                 $('#clock').fadeIn( "slow" );
                 $('.info').fadeIn( "slow" );
-                
-
-                var audio = $('#song').get(0);
-                audio.load();
+            
                 audio.play()
                 
 
