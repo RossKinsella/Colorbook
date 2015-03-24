@@ -54,7 +54,11 @@ $(document).ready(function() {
                 $('#loader-container').fadeOut( "slow" );
                 $('#clock').fadeIn( "slow" );
                 $('.info').fadeIn( "slow" );
-                $('#song').get(0).play();
+                
+
+                var audio = $('#song').get(0);
+                audio.load();
+                audio.play()
                 
 
                 Main();
