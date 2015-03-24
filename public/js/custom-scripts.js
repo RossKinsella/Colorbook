@@ -147,10 +147,9 @@ $(document).ready(function() {
     // I cant figure out how to dynamically set my transitions so this exists
     function injectInteractionAnimationRule() {
         var prefix = getVendorPrefix();
-        var screenWidth = $( window ).width();
+        var screenWidth = $( window ).width() * window.devicePixelRatio; 
         var styleSheet = document.styleSheets[0];
         var name = 'implode'; // An animation has no selector but it does have a name...
-        var index = 0; // Where to enter this in the rules
 
         var ruleOutterTop = '@' + prefix + '-keyframes implode {'
         var ruleBody = '100% { ' + prefix + '-transform: translateX(' + screenWidth + 'px); transform: translateX(' + screenWidth +  'px); }'
@@ -158,9 +157,21 @@ $(document).ready(function() {
 
         var rule = ruleOutterTop + ruleBody + ruleOutterBot;
 
-        styleSheet.insertRule(rule , styleSheet.rules.length);
+        
 
-        console.log(styleSheet.rules[styleSheet.rules.length - 1]);
+        var index = 0;
+        if (styleSheet.rules) // chrome and safari
+        {
+            index = styleSheet.rules.length;
+            styleSheet.insertRule(rule , index);
+        }
+        else if (styleSheet.cssRules) // firefox and IE
+        {
+            index = styleSheet.cssRules.length;
+            styleSheet.insertRule(rule , index);
+        }
+        else 
+            alert('Something has gone wrong. \n\nI would really appreciate it if you emailed at ross.kinsella.ie@gmail.com \n\nWith your:\n - Browser and its version \n - The app you were looking at');
     }
 
     function getVendorPrefix () {
