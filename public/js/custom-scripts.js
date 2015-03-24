@@ -6,8 +6,7 @@ $(document).ready(function() {
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
     Variables = { interactionFrequency: 15, minInteractionSize: 10, maxInteractionSize: 30 }
     Interactions = new Queue();
-    var audio = $('#song').get(0);
-    audio.load();
+
     
     // Events
     $('.info').on('tap', function(){ 
@@ -55,8 +54,9 @@ $(document).ready(function() {
                 $('#loader-container').fadeOut( "slow" );
                 $('#clock').fadeIn( "slow" );
                 $('.info').fadeIn( "slow" );
+                $('#loader-container').append("<audio id = 'song' autoplay loop> <source src='data/The_Hummingbird.mp3' type='audio/mpeg'></audio>");
             
-                audio.play();
+                
                 
 
                 Main();
