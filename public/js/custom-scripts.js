@@ -3,7 +3,7 @@ $(document).ready(function() {
     States = {pageIsActive: true, tappedInfoButton: false };
     InteractionIndex = {datetime: 0, user_id: 1, color: 2};
     ClockElements = { year: $('#year'), month: $('#month'), day: $('#day'), hour: $('#hour'), minute: $('#minute')};
-    Variables = { interactionFrequency: 15, minInteractionSize: 10, maxInteractionSize: 30 }
+    Variables = { interactionFrequency: 15, minInteractionSize: 5, maxInteractionSize: 15, numberOfSpeeds: 7 }
     Interactions = new Queue();
     
     // Events
@@ -91,12 +91,13 @@ $(document).ready(function() {
         // Get animation properties
         var color = "background:" + interaction.color + ";";
         var sizeInt = getRandomInt(Variables.minInteractionSize, Variables.maxInteractionSize);
-        var size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
-        var topOffset = "top: " + getRandomInt(0,100) + "%;"; 
+        var size = "height: " + sizeInt + "rem; width: " + sizeInt + "rem;";
+        var topOffset = "top: " + getRandomInt(-20,100) + "%;"; 
         var style = topOffset+color+size;
+        var speed = getRandomInt(1,Variables.numberOfSpeeds);
 
         // Create the animation with a self destruct
-        $("<div class='interaction-ball' style='" + style + "'></div>").appendTo('#interaction-container').one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){$(this).remove();});
+        $("<div class='interaction-ball speed-" + speed + "' style='" + style + "'></div>").appendTo('#interaction-container').one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){$(this).remove();});
     }
 
     function UpdateTimer(datetime)
@@ -148,7 +149,7 @@ $(document).ready(function() {
     // I cant figure out how to dynamically set my transitions so this exists
     function injectInteractionAnimationRule() {
         var prefix = getVendorPrefix();
-        var screenWidth = $( window ).width() * window.devicePixelRatio; 
+        var screenWidth = $( window ).width() * window.devicePixelRatio * 1.25; 
         var styleSheet = document.styleSheets[0];
         var name = 'implode'; // An animation has no selector but it does have a name...
 

@@ -23,20 +23,81 @@ body{
 .interaction-ball{
   pointer-events: none;
   position: absolute; 
-  left: -20px;
-
+  left: -20rem ;
+  top: -20rem;
   width: 10px;
   height: 10px;
   border-radius: 50%; 
   background: gray;
 
-  -webkit-animation: implode 4s linear; 
-  -moz-animation:    implode 4s linear; 
-  -o-animation:      implode 4s linear; 
-  animation:         implode 4s linear; 
+
 
   animation-fill-mode: both;
   opacity: .5;
+}
+
+.speed-1
+{
+  -webkit-animation: implode 4s linear; 
+  -moz-animation:    implode 4s linear; 
+  -o-animation:      implode 4s linear; 
+  animation:         implode 4s linear;   
+}
+
+.speed-2
+{
+  -webkit-animation: implode 3s linear; 
+  -moz-animation:    implode 3s linear; 
+  -o-animation:      implode 3s linear; 
+  animation:         implode 3s linear;   
+}
+
+.speed-3
+{
+  -webkit-animation: implode 4.5s linear; 
+  -moz-animation:    implode 4.5s linear; 
+  -o-animation:      implode 4.5s linear; 
+  animation:         implode 4.5s linear;   
+}
+
+.speed-4
+{
+  -webkit-animation: implode 3.5s linear; 
+  -moz-animation:    implode 3.5s linear; 
+  -o-animation:      implode 3.5s linear; 
+  animation:         implode 3.5s linear;   
+}
+
+.speed-5
+{
+  -webkit-animation: implode 2.5s linear; 
+  -moz-animation:    implode 2.5s linear; 
+  -o-animation:      implode 2.5s linear; 
+  animation:         implode 2.5s linear;   
+}
+
+.speed-6
+{
+  -webkit-animation: implode 2s linear; 
+  -moz-animation:    implode 2s linear; 
+  -o-animation:      implode 2s linear; 
+  animation:         implode 2s linear;   
+}
+
+.speed-7
+{
+  -webkit-animation: implode 1.75s linear; 
+  -moz-animation:    implode 1.75s linear; 
+  -o-animation:      implode 1.75s linear; 
+  animation:         implode 1.75s linear;   
+}
+
+.speed-8
+{
+  -webkit-animation: implode 1.5s linear; 
+  -moz-animation:    implode 1.5s linear; 
+  -o-animation:      implode 1.5s linear; 
+  animation:         implode 1.5s linear;   
 }
 
 .clock{
