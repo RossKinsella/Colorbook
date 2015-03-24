@@ -191,7 +191,7 @@ $(document).ready(function() {
     {
         var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod|Android)/g) ? true : false );
         if (iOS)
-            $('#jack-credit').remove();
+            $('#jack-credit').html('Visit here on a desktop device for a sweet song.');
         else
             $('#loader-container').append("<iframe style='display:none;' width= '100%' height= '450' scrolling= no' frameborder= 'no' src= 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/196109539&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>");
     }
