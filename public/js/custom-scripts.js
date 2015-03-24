@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     // Globals
     States = {pageIsActive: true, tappedInfoButton: false };
@@ -23,6 +22,10 @@ $(document).ready(function() {
             // console.log($('.info').attr("class").split(' '));
             States.tappedInfoButton  = true;            
         }
+    });
+
+    $( window ).resize(function() {
+        injectInteractionAnimationRule();
     });
 
     injectInteractionAnimationRule();
