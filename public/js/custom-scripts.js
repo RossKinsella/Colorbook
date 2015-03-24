@@ -10,18 +10,18 @@ $(document).ready(function() {
     // Events
 
     $('.info').on('tap', function(){ 
-        console.log(States.tappedInfoButton);
+        // console.log(States.tappedInfoButton);
         if (States.tappedInfoButton)
         {
             $('#more-info').stop( true, true ).fadeOut( 400 ); 
             $('.info').removeClass('show');
-            console.log($('.info').attr("class").split(' '));
+            // console.log($('.info').attr("class").split(' '));
             States.tappedInfoButton  = false;
         }
         else{
             $('#more-info').stop( true, true ).fadeIn( "slow" ); 
             $('.info').addClass('show');
-            console.log($('.info').attr("class").split(' '));
+            // console.log($('.info').attr("class").split(' '));
             States.tappedInfoButton  = true;            
         }
     });
@@ -54,7 +54,9 @@ $(document).ready(function() {
                 $('#loader-container').fadeOut( "slow" );
                 $('#clock').fadeIn( "slow" );
                 $('.info').fadeIn( "slow" );
+                $('#song').get(0).play();
                 
+
                 Main();
             }
         }); 
@@ -72,7 +74,7 @@ $(document).ready(function() {
             }
             else
             {
-                console.log('Paused');
+                // console.log('Paused');
             }
         }, Variables.interactionFrequency); // repeat forever, polling every 0.1 seconds
     }

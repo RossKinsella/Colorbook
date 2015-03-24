@@ -289,3 +289,14 @@ body{
   font-size: 22px;
   text-align: center;
 }
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
