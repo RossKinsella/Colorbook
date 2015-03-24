@@ -27,7 +27,7 @@ $(document).ready(function() {
         }
     });
 
-
+    injectInteractionAnimationRule();
     Initialise();
 
 
@@ -143,5 +143,38 @@ $(document).ready(function() {
     function getRandomInt(min, max) {
      return Math.round(Math.random() * (max - min + 1)) + min;
     }  
+
+    // I cant figure out how to dynamically set my transitions so this exists
+    function injectInteractionAnimationRule() {
+        var prefix = getVendorPrefix();
+        var screenWidth = screen.width;
+        var styleSheet = document.styleSheets[0];
+        var name = 'implode'; // An animation has no selector but it does have a name...
+        var index = 0; // Where to enter this in the rules
+
+        var ruleOutterTop = '@' + prefix + '-keyframes implode {'
+        var ruleBody = '100% { ' + prefix + '-transform: translateX(' + screenWidth + 'px); transform: translateX(' + screenWidth +  'px); }'
+        var ruleOutterBot = '}'
+
+        var rule = ruleOutterTop + ruleBody + ruleOutterBot;
+
+        styleSheet.insertRule(rule , styleSheet.rules.length);
+
+        console.log(styleSheet.rules[styleSheet.rules.length - 1]);
+    }
+
+    function getVendorPrefix () {
+        var ua = navigator.userAgent.toLowerCase(),
+            match = /opera/.exec(ua) || /msie/.exec(ua) || /firefox/.exec(ua) || /(chrome|safari)/.exec(ua),
+            vendors = {
+                opera: '-O',
+                chrome: '-webkit',
+                safari: '-webkit',
+                firefox: '-Moz',
+                msie: '-ms'
+            };
+        
+        return vendors[match[0]];
+    }
 
 });
